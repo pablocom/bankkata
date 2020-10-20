@@ -23,7 +23,7 @@ public class PrintStatementFeature {
     @Before
     public void initialise() {
         var transactionRepository = new TransactionRepository(clock);
-        var statementPrinter = new StatementPrinter();
+        var statementPrinter = new StatementPrinter(console);
         account = new Account(transactionRepository, statementPrinter);
     }
 
