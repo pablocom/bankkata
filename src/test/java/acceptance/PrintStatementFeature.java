@@ -1,20 +1,33 @@
 package acceptance;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 import pablocom.Console;
+import pablocom.bankkata.Account;
 
 import static org.mockito.Mockito.verify;
 
 @RunWith(MockitoJUnitRunner.class)
 public class PrintStatementFeature {
-
     @Mock Console console;
+
+    private Account account;
+
+    @Before
+    public void initialise() {
+        account = new Account();
+    }
 
     @Test
     public void print_statement_containing_all_transactions() {
+        account.deposit(1000);
+        account.withDraw(100);
+        account.deposit(500);
+
+        account.printStatement();
 
         verify(console).printLine("DATE | AMOUNT | BALANCE");
         verify(console).printLine("10/04/2014 | 500.00 | 1400.00");
