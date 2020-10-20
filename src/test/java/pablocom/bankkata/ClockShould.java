@@ -1,6 +1,6 @@
 package pablocom.bankkata;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import java.time.LocalDate;
 
