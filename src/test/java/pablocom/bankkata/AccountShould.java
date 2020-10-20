@@ -41,7 +41,7 @@ public class AccountShould {
 
     @Test
     public void print_a_statement() {
-        List<Transaction> transactions = Collections.singletonList(new Transaction());
+        List<Transaction> transactions = Collections.singletonList(new Transaction("20/09/1996", 200));
         given(transactionRepository.allTransactions()).willReturn(transactions);
 
         account.printStatement();

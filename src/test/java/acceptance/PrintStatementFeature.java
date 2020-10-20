@@ -3,26 +3,26 @@ package acceptance;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.InOrder;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 import pablocom.Console;
 import pablocom.bankkata.Account;
+import pablocom.bankkata.Clock;
 import pablocom.bankkata.StatementPrinter;
 import pablocom.bankkata.TransactionRepository;
 
 import static org.mockito.Mockito.inOrder;
-import static org.mockito.Mockito.verify;
 
 @RunWith(MockitoJUnitRunner.class)
 public class PrintStatementFeature {
     @Mock Console console;
+    @Mock Clock clock;
 
     private Account account;
 
     @Before
     public void initialise() {
-        var transactionRepository = new TransactionRepository();
+        var transactionRepository = new TransactionRepository(clock);
         var statementPrinter = new StatementPrinter();
         account = new Account(transactionRepository, statementPrinter);
     }

@@ -1,17 +1,29 @@
 package pablocom.bankkata;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import static java.util.Collections.unmodifiableList;
+
 public class TransactionRepository {
+    private final Clock clock;
+    private List<Transaction> transactions = new ArrayList();
+
+    public TransactionRepository(Clock clock) {
+        this.clock = clock;
+    }
+
     public void addDeposit(int amount) {
-        throw new UnsupportedOperationException();
+        var deposit = new Transaction(clock.todayAsString(), amount);
+        transactions.add(deposit);
     }
 
     public void addWithdrawal(int amount) {
-        throw new UnsupportedOperationException();
+        var withdrawal = new Transaction(clock.todayAsString(), -amount);
+        transactions.add(withdrawal);
     }
 
     public List<Transaction> allTransactions() {
-        throw new UnsupportedOperationException();
+        return unmodifiableList(transactions);
     }
 }
