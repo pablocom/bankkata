@@ -22,7 +22,7 @@ public class StatementPrinterShould {
     private StatementPrinter statementPrinter;
 
     @Before
-    public void setUp() {
+    public void initialise() {
         statementPrinter = new StatementPrinter(console);
     }
 
