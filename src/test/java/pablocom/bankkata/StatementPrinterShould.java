@@ -5,9 +5,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
-import pablocom.Console;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 

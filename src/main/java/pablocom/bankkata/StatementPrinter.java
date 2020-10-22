@@ -1,7 +1,5 @@
 package pablocom.bankkata;
 
-import pablocom.Console;
-
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.util.List;
